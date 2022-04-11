@@ -112,7 +112,7 @@ namespace PERPROG_C_PROBA_ZH
             }
             public override string ToString()
             {
-                string kimenet=Type.ToString()+" "+Id+"\tFizetés: "+Fizetés+"Ft "+ "\tHatralevoTavolsag " + HatralevoTavolsag + "m \t|";
+                string kimenet=Type.ToString()+" "+Id+" Fizetés: "+Fizetés+"Ft "+ "HatralevoTavolsag " + HatralevoTavolsag + "m |";
                 if (HisOrder!=null)
                 {
                     kimenet += HisOrder.ToString();
@@ -136,7 +136,7 @@ namespace PERPROG_C_PROBA_ZH
                             }
                             else //Ha FürgeFutár
                             {
-                                var v = Orders.OrderByDescending(t => t.Price).First();
+                                var v = Orders.OrderBy(t => t.Distance).First();
                                 this.HisOrder = v;
                                 Orders.Remove(v);
                                 this.HatralevoTavolsag = 0;
